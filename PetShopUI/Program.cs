@@ -1,4 +1,8 @@
 ﻿using System;
+using Microsoft.Extensions.DependencyInjection;
+using mmt.PetShop.Core.IServices;
+using mmt.PetShop.Domain.IRepositories;
+using mmt.PetShop.Domain.Services;
 
 namespace PetMenu
 {
@@ -6,16 +10,16 @@ namespace PetMenu
     {
         static void Main(string[] args)
         {
-            FakeDB.InitData();
+            // Her foregår dependency-Injections. Pointen bag dette er i store træk samme tankegang som GOF - Facade-pattern
             
             var serviceCollection = new ServiceCollection();
-            serviceCollection.AddScoped<ICarRepository, CarRepository>();
-            serviceCollection.AddScoped<ICarMakeRepository, CarMakeRepository>();
-            serviceCollection.AddScoped<ICarService, CarService>();
+            serviceCollection.AddScoped<IPetService, PetService>();
+            // serviceCollection.AddScoped<ICarMakeRepository, CarMakeRepository>();
+            // serviceCollection.AddScoped<ICarService, CarService>();
 
-            var serviceProvider = serviceCollection.BuildServiceProvider();
-            var carService = serviceProvider.GetRequiredService<ICarService>();
-            new Printer(carService);
+            // var serviceProvider = serviceCollection.BuildServiceProvider();
+            // var carService = serviceProvider.GetRequiredService<ICarService>();
+            // new Printer(carService);
 
             Console.ReadLine();
             /*////then build provider 

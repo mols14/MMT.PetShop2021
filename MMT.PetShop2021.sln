@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetShop.Core", "Core\PetSho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetShop.Domain", "Core\PetShop.Domain\PetShop.Domain.csproj", "{AE24E7AC-21F9-459C-8D28-FE4B51E6240A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetShop.Infrastructure.DataAccess", "Infrastructure\PetShop.Infrastructure.DataAccess\PetShop.Infrastructure.DataAccess.csproj", "{BAE691EF-2B1D-4ADD-8BB6-5EA6494B5615}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetShop.Infrastructure.Data", "Infrastructure\PetShop.Infrastructure.Data\PetShop.Infrastructure.Data.csproj", "{BAE691EF-2B1D-4ADD-8BB6-5EA6494B5615}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{62C75624-FCCC-4902-8BAB-C7BB5E7A81FC}"
 EndProject
