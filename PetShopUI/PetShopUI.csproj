@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>PetMenu</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core\PetShop.Core\PetShop.Core.csproj" />
+      <ProjectReference Include="..\Core\PetShop.Domain\PetShop.Domain.csproj" />
+      <ProjectReference Include="..\Infrastructure\PetShop.Infrastructure.DataAccess\PetShop.Infrastructure.DataAccess.csproj" />
+    </ItemGroup>
+
+</Project>
