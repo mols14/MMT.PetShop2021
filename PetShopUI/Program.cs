@@ -14,8 +14,6 @@ namespace PetMenu
             
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddScoped<IPetService, PetService>();
-            // serviceCollection.AddScoped<ICarMakeRepository, CarMakeRepository>();
-            // serviceCollection.AddScoped<ICarService, CarService>();
 
             // var serviceProvider = serviceCollection.BuildServiceProvider();
             // var carService = serviceProvider.GetRequiredService<ICarService>();
