@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using mmt.PetShop.Core.IServices;
 using mmt.PetShop.Domain.IRepositories;
 using mmt.PetShop.Domain.Services;
+using mmt.PetShop.Infrastructure.Data;
 
 namespace PetMenu
 {
@@ -10,20 +11,17 @@ namespace PetMenu
     {
         static void Main(string[] args)
         {
-            // Her foregår dependency-Injections. Pointen bag dette er i store træk samme tankegang som GOF - Facade-pattern
             
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddScoped<IPetService, PetService>();
+            serviceCollection.AddScoped<IPetRepository, PetRepository>();
 
-            // var serviceProvider = serviceCollection.BuildServiceProvider();
-            // var carService = serviceProvider.GetRequiredService<ICarService>();
-            // new Printer(carService);
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+            var petService = serviceProvider.GetRequiredService<IPetService>();
+            new PetMenu(petService);
 
             Console.ReadLine();
-            /*////then build provider 
-            var serviceProvider = serviceCollection.BuildServiceProvider();
-            var printer = serviceProvider.GetRequiredService<IPrinter>();
-            printer.StartUI();*/
+            
         }
     }
 }

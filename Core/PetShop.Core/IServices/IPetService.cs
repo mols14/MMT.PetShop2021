@@ -8,13 +8,25 @@ namespace mmt.PetShop.Core.IServices
     {
         List<Pet> GetAllPets();
 
-        Pet addPet(string name, string type, string gender, DateTime birthdate, 
+        Pet addPet(string name, string petType, DateTime birthdate, 
             DateTime soldDate, double price);
 
         Pet CreatePet(Pet pet);
 
         void DeletePet(int Id);
+
+        Pet UpdatePet();
+
+        List<Pet> SortByPrice();
+
+        List<Pet> SortByName(string name);
+
+        List<Pet> SortByType();
+
+        List<Pet> getFiveCheapestPets();
         
         
+
+
     }
 }
