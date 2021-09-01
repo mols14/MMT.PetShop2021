@@ -58,13 +58,19 @@ namespace mmt.PetShop.Infrastructure.Data
                 Color = "Calico",
                 Price = 699
             };
-            
+
             var pet5 = new Pet()
             {
                 PetId = id++,
-                Name = "Sir. Meowsalot",
-                Birthdate = DateTime.Parse()
-            }
+                Name = "Oliver",
+                Type = Cat,
+                Birthdate = DateTime.Parse("7/5/2020"),
+                SoldDate = DateTime.Parse("12/6/2020"),
+                Color = "Tabby",
+                Price = 1100
+            };
+            
+            
         }
     }
 }
