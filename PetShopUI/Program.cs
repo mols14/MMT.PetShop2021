@@ -18,10 +18,11 @@ namespace PetMenu
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
             var petService = serviceProvider.GetRequiredService<IPetService>();
-            new PetMenu(petService);
+            var petTypeService = serviceProvider.GetRequiredService<IPetTypeService>();
+            new PetMenu(petService, petTypeService);
 
-            Console.ReadLine();
-            
+            PetMenu.BootUp();
+
         }
     }
 }
