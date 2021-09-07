@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using mmt.PetShop.Core.IServices;
 using mmt.PetShop.Core.Models;
 using mmt.PetShop.Domain.IRepositories;
@@ -22,19 +23,28 @@ namespace mmt.PetShop.Domain.Services
             return _petRepository.ReadPets().ToList();
         }
 
-        public Pet addPet(string name, string petType, DateTime birthdate, DateTime soldDate, double price)
+        public Pet addPet(string name, PetType petType, DateTime birthdate, DateTime soldDate, string color, double price)
         {
-            throw new NotImplementedException();
+            var pet = new Pet()
+            {
+                Name = name,
+                Type = petType,
+                Birthdate = birthdate,
+                SoldDate = soldDate,
+                Color = color,
+                Price = price
+            };
+            return pet;
         }
 
         public Pet CreatePet(Pet pet)
         {
-            throw new NotImplementedException();
+            return _petRepository.CreatePet(pet);
         }
 
         public void DeletePet(int Id)
         {
-            throw new NotImplementedException();
+            _petRepository.DeletePet(Id);
         }
 
         public Pet UpdatePet()
@@ -44,22 +54,35 @@ namespace mmt.PetShop.Domain.Services
 
         public List<Pet> SortByPrice()
         {
-            throw new NotImplementedException();
+            return _petRepository.ReadPets().OrderByDescending(pet => pet.Price).ToList();
         }
 
         public List<Pet> SortByName(string name)
         {
-            throw new NotImplementedException();
+            return _petRepository.ReadPets().Where(pet => pet.Name.Contains(name)).ToList();
         }
 
-        public List<Pet> SortByType()
+        public List<Pet> SortByType(PetType petType)
         {
+            // return _petRepository.ReadPets().Where(pet => pet.PetType.Contains(petType)).ToList();
             throw new NotImplementedException();
         }
 
         public List<Pet> getFiveCheapestPets()
         {
-            throw new NotImplementedException();
+            Pets = new List<Pet>();
+            var pet = Pets.ToList();
+            pet.Clear();
+            var list = _petRepository.ReadPets().ToList();
+            foreach (var pets in list)
+            {
+                if (pets.SoldDate.Year == 0001)
+                {
+                    pet.Add(pets);
+                }
+            }
+
+            return pet.OrderBy(pets => pets.Price).Take(5).ToList();
         }
     }
 }

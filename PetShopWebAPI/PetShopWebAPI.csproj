@@ -12,7 +12,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Core\PetShop.Core\PetShop.Core.csproj" />
       <ProjectReference Include="..\Core\PetShop.Domain\PetShop.Domain.csproj" />
-      <ProjectReference Include="..\Infrastructure\PetShop.Infrastructure.Data\PetShop.Infrastructure.Data.csproj" />
+      <ProjectReference Include="..\Infrastructure\PetShop.DataAccess\PetShop.DataAccess.csproj" />
     </ItemGroup>
 
 </Project>
