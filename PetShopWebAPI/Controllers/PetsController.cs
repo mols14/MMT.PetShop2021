@@ -31,5 +31,8 @@ namespace PetShopWebAPI.Controllers
         {
             return _petService.GetAllPets();
         }
+        
+        [HttpPut({id})]
+        public void Update(long id, [FromBody]
     }
 }
