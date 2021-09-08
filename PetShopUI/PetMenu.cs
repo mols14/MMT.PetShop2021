@@ -5,7 +5,7 @@ namespace PetMenu
 {
     public class PetMenu
     {
-        private readonly IPetService _petService;
+        private static IPetService _petService;
         private readonly IPetTypeService _petTypeService;
 
         public PetMenu(IPetService petService, IPetTypeService petTypeService)
