@@ -5,7 +5,7 @@ using mmt.PetShop.Domain.IRepositories;
 
 namespace mmt.PetShop.Infrastructure.Data
 {
-    public class PetTypeRepositor : IPetTypeRepository
+    public class PetTypeRepository : IPetTypeRepository
     {
         public List<PetType> GetAllPetTypes()
         {

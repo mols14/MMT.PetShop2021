@@ -94,8 +94,7 @@ namespace mmt.PetShop.Infrastructure.Data
                 Color = "Tabby",
                 Price = 1100
             }; Pets.Add(pet5);
-            
-            
+
         }
     }
 }

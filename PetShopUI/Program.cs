@@ -14,7 +14,10 @@ namespace PetMenu
             
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddScoped<IPetService, PetService>();
+            serviceCollection.AddScoped<IPetTypeService, PetTypeService>();
+            
             serviceCollection.AddScoped<IPetRepository, PetRepository>();
+            serviceCollection.AddScoped<IPetTypeRepository, PetTypeRepository>();
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
             var petService = serviceProvider.GetRequiredService<IPetService>();

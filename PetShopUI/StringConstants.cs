@@ -9,7 +9,7 @@ namespace PetMenu
         public const string UpdatePet = "4. Update a pet";
         public const string SearchByType = "5. Search by pet type";
         public const string ShowMostExpensivePets = "6. Show the most expensive pets";
-        public const string ShowCheapestPets = "7. Show the cheapest pets";
+        public const string ShowCheapestPets = "7. Show the five cheapest pets";
         public const string ExitApplication = "0. Exit Application";
         public const string Id = "Give the pet an Id:";
         public const string Name = "Give the pet a name";
@@ -18,5 +18,6 @@ namespace PetMenu
         public const string Color = "Type the color of the pet";
         public const string BirthDate = "Type the birthdate of the pet in the following format: dd/mm/yyyy";
         public const string SoldDate = "Type the date the pet was sold in the following format: dd/mm/yyyy";
+        public const string FiveCheapestPets = "Here are, as of this moment, the five cheapest pets:";
     }
 }

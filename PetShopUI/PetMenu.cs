@@ -25,10 +25,7 @@ namespace PetMenu
             StartLoop();
         }
 
-        private void ShowWelcomeGreeting()
-        {
-            Console.WriteLine(StringConstants.Greet);
-        }
+        
         
         private void StartLoop()
         {
@@ -50,21 +47,21 @@ namespace PetMenu
                     DeletePet();
                 }
 
-                if (choice == 4)
-                {
-                    UpdatePet();
-                }
-
-                if (choice == 5)
-                {
-                    GetPetByPetType();
-                }
-
-                if (choice == 6)
-                {
-                    ShowMostExpensivePets();
-                }
-
+                // if (choice == 4)
+                // {
+                //     UpdatePet();
+                // }
+                //
+                // if (choice == 5)
+                // {
+                //     GetPetByPetType();
+                // }
+                //
+                // if (choice == 6)
+                // {
+                //     ShowMostExpensivePets();
+                // }
+                
                 if (choice == 7)
                 {
                     ShowCheapestPets();
@@ -72,10 +69,31 @@ namespace PetMenu
             }
         }
 
+        private void ShowCheapestPets()
+        {
+            Console.WriteLine(StringConstants.FiveCheapestPets);
+            List<Pet> cheapestPets = _petService.getFiveCheapestPets();
+            Console.WriteLine(cheapestPets);
+        }
+
+        private void ShowWelcomeGreeting()
+                    {
+                        Console.WriteLine(StringConstants.Greet);
+                    }
+        private void DeletePet()
+        {
+            var idToDelete = int.Parse(Console.ReadLine());
+            if (idToDelete != null)
+            {
+                _petService.DeletePet(idToDelete);
+                Console.WriteLine($"A pet with the id {idToDelete} has been successfully removed from the list of pets");
+            }
+        }
+
         private void CreatePet()
         {
             List<Pet> pets = _petService.GetAllPets();
-            Pet pet = new Pet();
+            var pet = new Pet();
             
             Console.WriteLine(StringConstants.Id);
             var idString = Console.ReadLine();
