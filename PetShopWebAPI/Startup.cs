@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,6 +16,8 @@ using mmt.PetShop.Core.IServices;
 using mmt.PetShop.Domain.IRepositories;
 using mmt.PetShop.Domain.Services;
 using mmt.PetShop.Infrastructure.Data;
+using PetShop.EFSql;
+using PetShop.EFSql.Repositories;
 
 namespace PetShopWebAPI
 {
@@ -35,8 +38,25 @@ namespace PetShopWebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "PetShopWebAPI", Version = "v1"});
             });
+
+            var loggerFactory = LoggerFactory.Create(builder => {
+                builder.AddConsole();
+            });
+            services.AddDbContext<PetShopApplicationContext>(
+                options =>
+                {
+                    options
+                        .UseLoggerFactory(loggerFactory)
+                        .UseSqlite("Data Source=PetShopApp.db");
+                });
+            
+            
             services.AddScoped<IPetService, PetService>();
             services.AddScoped<IPetRepository, PetRepository>();
+            services.AddScoped<IPetTypeService, PetTypeService>();
+            services.AddScoped<IPetTypeRepository, PetTypeRepository>();
+            services.AddScoped<IInsuranceRepository, InsuranceRepository>();
+            services.AddScoped<IInsuranceService, InsuranceService>();
 
         }
 
@@ -48,6 +68,13 @@ namespace PetShopWebAPI
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PetShopWebAPI v1"));
+
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var ctx = scope.ServiceProvider.GetService<PetShopApplicationContext>();
+                    ctx.Database.EnsureDeleted();
+                    ctx.Database.EnsureCreated();
+                }
             }
 
             app.UseHttpsRedirection();
