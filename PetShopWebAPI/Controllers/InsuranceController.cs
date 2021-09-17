@@ -32,5 +32,48 @@ namespace PetShopWebAPI.Controllers
             }
             
         }
+
+        [HttpGet]
+        public ActionResult<List<Insurance>> GetAll()
+        {
+            try
+            {
+                return Ok(_insuranceService.GetAll());
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, "FARDED");
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult<Insurance> DeleteEntry(int id)
+        {
+            try
+            {
+                return Ok(_insuranceService.DeleteEntry(id));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, "IM retarded");
+            }
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult<Insurance> UpdateFromId(int id, [FromBody] Insurance insurance)
+        {
+            try
+            {
+                if (id != insurance.Id)
+                {
+                    return BadRequest("ID in insurance must match param ID");
+                }
+                return Ok(_insuranceService.UpdateEntry(insurance));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, "dint work");
+            }
+        }
     }
 }
