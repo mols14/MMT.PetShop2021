@@ -18,9 +18,11 @@ namespace mmt.PetShop.Infrastructure.Data
         public static void InitData()
         {
 
-            PetType rat = new PetType();
-            rat.Id = petTypeId++;
-            rat.Name = "Rat";
+            var rat = new PetType
+            {
+                Id = petTypeId++,
+                Name = "Rat"
+            };
             PetTypes.Add(rat);
 
             PetType hedgehog = new PetType();

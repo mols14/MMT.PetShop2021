@@ -47,11 +47,11 @@ namespace mmt.PetShop.Domain.Services
             _petRepository.DeletePet(Id);
         }
 
-        public Pet UpdatePet()
+        public Pet UpdatePet(Pet pet)
         {
             throw new NotImplementedException();
         }
-
+        
         public List<Pet> SortByPrice()
         {
             return _petRepository.ReadPets().OrderByDescending(pet => pet.Price).ToList();
@@ -68,7 +68,7 @@ namespace mmt.PetShop.Domain.Services
             throw new NotImplementedException();
         }
 
-        public List<Pet> getFiveCheapestPets()
+        public List<Pet> GetFiveCheapestPets()
         {
             Pets = new List<Pet>();
             var pet = Pets.ToList();
@@ -84,5 +84,11 @@ namespace mmt.PetShop.Domain.Services
 
             return pet.OrderBy(pets => pets.Price).Take(5).ToList();
         }
+
+        public Pet SearcById(int id)
+        {
+            return _petRepository.ReadById(id);
+        }
+        
     }
 }

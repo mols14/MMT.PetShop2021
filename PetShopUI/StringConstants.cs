@@ -19,5 +19,8 @@ namespace PetMenu
         public const string BirthDate = "Type the birthdate of the pet in the following format: dd/mm/yyyy";
         public const string SoldDate = "Type the date the pet was sold in the following format: dd/mm/yyyy";
         public const string FiveCheapestPets = "Here are, as of this moment, the five cheapest pets:";
+        public const string TypeId = "Please type in a valid numerical Id";
+        public const string TypeName = "Please type in the desired name of the pet";
+        public const string TypePrice = "Please type in the new price of the pet";
     }
 }

@@ -11,7 +11,6 @@ namespace PetMenu
     {
         static void Main(string[] args)
         {
-            
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddScoped<IPetService, PetService>();
             serviceCollection.AddScoped<IPetTypeService, PetTypeService>();
@@ -24,6 +23,7 @@ namespace PetMenu
             var petTypeService = serviceProvider.GetRequiredService<IPetTypeService>();
             
             PetMenu petMenu = new PetMenu(petService, petTypeService);
+            FakeDB.InitData();
             petMenu.Start();
 
         }

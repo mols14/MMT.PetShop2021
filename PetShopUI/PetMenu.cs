@@ -72,17 +72,18 @@ namespace PetMenu
         private void ShowCheapestPets()
         {
             Console.WriteLine(StringConstants.FiveCheapestPets);
-            List<Pet> cheapestPets = _petService.getFiveCheapestPets();
+            List<Pet> cheapestPets = _petService.GetFiveCheapestPets();
             Console.WriteLine(cheapestPets);
         }
 
-        private void ShowWelcomeGreeting()
-                    {
-                        Console.WriteLine(StringConstants.Greet);
-                    }
+        private void ShowWelcomeGreeting() 
+        {
+            
+            Console.WriteLine(StringConstants.Greet); 
+        }
         private void DeletePet()
         {
-            var idToDelete = int.Parse(Console.ReadLine());
+            int idToDelete = int.Parse(Console.ReadLine() ?? string.Empty);
             if (idToDelete != null)
             {
                 _petService.DeletePet(idToDelete);
@@ -149,6 +150,30 @@ namespace PetMenu
             
             Console.WriteLine("Pet has been succesfully added to Database.");
 
+        }
+
+        private void UpdatePet()
+        {
+            Console.WriteLine(StringConstants.TypeId);
+            int updateId = int.Parse(Console.ReadLine());
+            var updatePet = _petService.SearcById(updateId);
+            
+            Console.WriteLine(StringConstants.TypeName);
+            var updateName = Console.ReadLine();
+            
+            Console.WriteLine(StringConstants.TypePrice);
+            double updatePrice = double.Parse(Console.ReadLine());
+
+            _petService.UpdatePet(new Pet()
+            {
+                PetId = updatePet.PetId,
+                Name = updateName,
+                Price = updatePrice,
+                Birthdate = updatePet.Birthdate,
+                Color = updatePet.Color,
+                SoldDate = updatePet.SoldDate,
+                Type = updatePet.Type
+            });
         }
         private int GetMainMenuSelection()
         {

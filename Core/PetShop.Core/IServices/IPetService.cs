@@ -11,13 +11,14 @@ namespace mmt.PetShop.Core.IServices
             DateTime soldDate, string color, double price);
         Pet CreatePet(Pet pet);
         void DeletePet(int Id);
-        Pet UpdatePet();
+        Pet UpdatePet(Pet pet);
         List<Pet> SortByPrice();
         List<Pet> SortByName(string name);
         List<Pet> SortByType(PetType petType);
-        List<Pet> getFiveCheapestPets();
-        
-        
+        List<Pet> GetFiveCheapestPets();
+        Pet SearcById(int id);
+
+
 
 
     }

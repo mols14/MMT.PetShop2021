@@ -7,6 +7,8 @@ namespace mmt.PetShop.Infrastructure.Data
 {
     public class PetRepository : IPetRepository
     {
+
+        private static List<Pet> _pets = new List<Pet>();
         public IEnumerable<Pet> ReadPets()
         {
             return FakeDB.Pets;
@@ -27,6 +29,19 @@ namespace mmt.PetShop.Infrastructure.Data
             var pet2bDeleted = pets.FirstOrDefault(pet => pet.PetId == Id);
             pets.Remove(pet2bDeleted);
             FakeDB.Pets = pets;
+        }
+
+        public Pet ReadById(int id)
+        {
+            foreach (var pet in _pets)
+            {
+                if (pet.PetId == id)
+                {
+                    return pet;
+                }
+            }
+
+            return null;
         }
     }
 }
