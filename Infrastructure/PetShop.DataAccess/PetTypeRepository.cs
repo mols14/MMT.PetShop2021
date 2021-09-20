@@ -9,7 +9,7 @@ namespace mmt.PetShop.Infrastructure.Data
     {
         public List<PetType> GetAllPetTypes()
         {
-            throw new System.NotImplementedException();
+            return FakeDB.PetTypes;
         }
         public PetType GetPetType(int id)
         {
