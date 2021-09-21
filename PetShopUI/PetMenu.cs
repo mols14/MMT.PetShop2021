@@ -47,11 +47,11 @@ namespace PetMenu
                     DeletePet();
                 }
 
-                // if (choice == 4)
-                // {
-                //     UpdatePet();
-                // }
-                //
+                if (choice == 4)
+                {
+                    UpdatePet();
+                }
+                
                 // if (choice == 5)
                 // {
                 //     GetPetByPetType();
@@ -205,7 +205,7 @@ namespace PetMenu
 
             foreach (Pet pet in allPets)
             {
-                Console.WriteLine("Id: " + pet.PetId + " Name: " + pet.Name + " Color: " + pet.Color + " Type: " + pet.Type.Name + " Birthdate: " + pet.Birthdate + " Price: " + pet.Price + " SoldDate: " + pet.SoldDate);
+                Console.WriteLine("Id: " + pet.PetId + " Info: " + pet.Name +", " + pet.Color + " " + pet.Type.Name + ". Birthdate: " + pet.Birthdate + " Price: " + pet.Price +" USD" + " SoldDate: " + pet.SoldDate);
             }
             Console.WriteLine("\n");
         }
