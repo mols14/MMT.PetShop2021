@@ -12,8 +12,8 @@ namespace mmt.PetShop.Infrastructure.Data
     {
         public static int id = 1;
         public static int petTypeId = 1;
-        public static List<Pet> Pets;
-        public static List<PetType> PetTypes;
+        public static List<Pet> Pets = new List<Pet>();
+        public static List<PetType> PetTypes = new List<PetType>();
 
         public static void InitData()
         {
@@ -50,7 +50,7 @@ namespace mmt.PetShop.Infrastructure.Data
                 Birthdate = DateTime.Parse("20/4/2021"),
                 SoldDate = DateTime.Today,
                 Color = "Grey",
-                Price = Convert.ToDouble(6 + "gorrillion")
+                Price = 6
             }; Pets.Add(pet1);
 
             var pet2 = new Pet()
