@@ -23,12 +23,16 @@ namespace mmt.PetShop.Infrastructure.Data
             return pet;
         }
 
-        public void DeletePet(int Id)
+        public Pet DeletePet(int id)
         {
             var pets = FakeDB.Pets.ToList();
-            var pet2bDeleted = pets.FirstOrDefault(pet => pet.PetId == Id);
+            var pet2bDeleted = pets.FirstOrDefault(pet => pet.PetId == id);
             pets.Remove(pet2bDeleted);
             FakeDB.Pets = pets;
+            return new Pet
+            {
+                PetId = id
+            };
         }
 
         public Pet ReadById(int id)

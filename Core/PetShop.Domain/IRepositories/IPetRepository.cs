@@ -10,7 +10,7 @@ namespace mmt.PetShop.Domain.IRepositories
 
         Pet CreatePet(Pet pet);
 
-        void DeletePet(int Id);
+        Pet DeletePet(int id);
 
         Pet ReadById(int id);
     }
