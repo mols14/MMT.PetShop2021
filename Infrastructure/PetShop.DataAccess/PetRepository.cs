@@ -9,11 +9,13 @@ namespace mmt.PetShop.Infrastructure.Data
     {
 
         private static List<Pet> _pets = new List<Pet>();
+        
         public IEnumerable<Pet> ReadPets()
         {
             return FakeDB.Pets;
         }
 
+        
         public Pet CreatePet(Pet pet)
         {
             pet.PetId = FakeDB.id++;
@@ -22,6 +24,17 @@ namespace mmt.PetShop.Infrastructure.Data
             FakeDB.Pets = pets;
             return pet;
         }
+
+        // public List<Pet> ReadAll()
+        // {
+        //     return _ctx.Pets
+        //         .Include
+        //         .Select(entity => new Pet()
+        //         {
+        //             Id = entity.Id,
+        //             
+        //         }
+        // }
 
         public Pet DeletePet(int id)
         {
@@ -46,6 +59,11 @@ namespace mmt.PetShop.Infrastructure.Data
             }
 
             return null;
+        }
+
+        public int TotalCount()
+        {
+            
         }
     }
 }

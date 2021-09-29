@@ -14,6 +14,5 @@ namespace PetShop.EFSql.Entities
         public DateTime SoldDate { get; set; }
         public int InsuranceId { get; set; }
         public InsuranceEntity Insurance { get; set; }
-        
     }
 }
