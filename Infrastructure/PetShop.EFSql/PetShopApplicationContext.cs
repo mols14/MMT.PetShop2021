@@ -13,6 +13,21 @@ namespace PetShop.EFSql
             modelBuilder.Entity<PetEntity>()
                 .HasOne(petEntity => petEntity.Insurance)
                 .WithMany(insuranceEntity => insuranceEntity.Pets);
+
+            modelBuilder.Entity<PetColorEntity>()
+                .HasOne(pc => pc.Pet)
+                .WithMany(p => p.Colors);
+
+            modelBuilder.Entity<PetColorEntity>()
+                .HasOne(pc => pc.Color)
+                .WithMany();
+
+            modelBuilder.Entity<PetColorEntity>()
+                .HasData(new PetColorEntity()
+                {
+                    PetId = 1,
+                    ColorId = 1
+                });
             
             modelBuilder.Entity<InsuranceEntity>()
                 .HasData(new InsuranceEntity {Id = 1, Name = "SafeStuff", Price = 69});
@@ -26,5 +41,6 @@ namespace PetShop.EFSql
         public DbSet<InsuranceEntity> Insurances { get; set; }
         public DbSet<OwnerEntity> Owners { get; set; }
         public DbSet<PetEntity> Pets { get; set; }
+        public DbSet<PetColorEntity> PetColors { get; set; }
     }
 }

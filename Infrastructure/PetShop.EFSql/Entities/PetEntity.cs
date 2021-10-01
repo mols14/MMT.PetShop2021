@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 using mmt.PetShop.Core.Models;
 
 namespace PetShop.EFSql.Entities
@@ -14,5 +16,8 @@ namespace PetShop.EFSql.Entities
         public DateTime SoldDate { get; set; }
         public int InsuranceId { get; set; }
         public InsuranceEntity Insurance { get; set; }
+
+        public List<PetColorEntity> Colors { get; set; } // listen af relationer to colors. Id'er til farer, ikke farverne selv.
+        
     }
 }

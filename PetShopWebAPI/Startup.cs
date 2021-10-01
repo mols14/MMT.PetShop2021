@@ -18,6 +18,7 @@ using mmt.PetShop.Domain.Services;
 using mmt.PetShop.Infrastructure.Data;
 using PetShop.EFSql;
 using PetShop.EFSql.Repositories;
+using PetRepository = mmt.PetShop.Infrastructure.Data.PetRepository;
 
 namespace PetShopWebAPI
 {

@@ -23,7 +23,13 @@ namespace PetShop.EFSql.Repositories
                 Type = pet.Type,
                 Color = pet.Color,
                 Birthdate = pet.BirthDate,
-                SoldDate = pet.SoldDate
+                SoldDate = pet.SoldDate,
+                Colors = pet.Colors.Select(pce => new Color()
+                {
+                    Id = pce.Color.Id,
+                    Name = pce.Color.Name
+                }
+                    ).ToList()
             });
         }
 

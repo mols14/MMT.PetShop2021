@@ -61,9 +61,9 @@ namespace mmt.PetShop.Infrastructure.Data
             return null;
         }
 
-        public int TotalCount()
-        {
-            
-        }
+        // public int TotalCount()
+        // {
+        //     
+        // }
     }
 }
